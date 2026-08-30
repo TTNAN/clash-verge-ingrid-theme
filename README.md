@@ -1,12 +1,14 @@
 # Clash Verge — Ingrid Theme
 
+**[English](#) | [简体中文](./README.zh.md)**
+
 ![banner](wallpaper/wallpaper.jpg)
 
 > *Inspired by the crystalline teleportation of **Ingrid** from *Street Fighter 6* — every panel in this theme is a frozen shard of light, the wallpaper peeking through underneath.*
 
 A frosted-glass CSS theme for [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev) inspired by **Ingrid** from *Street Fighter 6*. Every panel is a frozen shard of light, the wallpaper bleeds edge-to-edge, and the proxy list reads like a battlefield of crystalline teleports.
 
-> 🌏 **Looking for the Simplified Chinese version?** Switch the language using the picker at the top-right of this page, or read [`README.zh.md`](./README.zh.md) directly.
+> 🌏 **Looking for the Simplified Chinese version?** Click [简体中文](./README.zh.md) at the top, or open it directly.
 
 ---
 

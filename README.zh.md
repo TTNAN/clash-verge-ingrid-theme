@@ -1,5 +1,7 @@
 # Clash Verge — Ingrid 主题
 
+**[English](./README.md) | [简体中文](#)**
+
 ![banner](wallpaper/wallpaper.jpg)
 
 > *灵感来源于《Street Fighter 6》中 Ingrid 的水晶幻境——她每一次瞬移都留下半透明的光晕，像凝固的玻璃碎片。这套 Clash Verge 主题把这种感觉搬到了代理面板上：每一张卡片都是一片"水晶"，底下透出您的壁纸。*

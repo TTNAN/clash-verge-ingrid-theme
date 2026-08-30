@@ -100,6 +100,23 @@ Clash Verge 默认使用**系统标题栏**，那一层在 WebView 之上，CSS 
 
 > 提示：在 Clash Verge 的"自定义 CSS"输入框里，`$(pwd)` 会解析成 CSS 文件所在的目录，所以如果您**直接套用本仓库的目录结构**（`theme.css` + `wallpaper/wallpaper.jpg` 一起放），用 `--cv-wallpaper: url("http://asset.localhost/$(pwd)/wallpaper/wallpaper.jpg");` 就行，**不用手写路径**。
 
+### 自带双层 fallback 链（兜底机制）
+
+仓库默认的 `theme.css` 已经写好了两层兜底，本地找不到图就自动走 jsDelivr CDN：
+
+```css
+--cv-wallpaper:
+  url("http://asset.localhost/$(pwd)/wallpaper/wallpaper.jpg"),                                  /* 本地打包的壁纸 */
+  url("https://fastly.jsdelivr.net/gh/TTNAN/clash-verge-ingrid-theme@main/wallpaper/wallpaper.jpg"); /* CDN 镜像 */
+```
+
+也就是说：
+
+- **正常 clone 仓库使用** → 走本地，零延迟，离线也能用
+- **只复制了 `theme.css`，壁纸文件夹丢了** → 自动切到 jsDelivr CDN（您之前记过这个镜像在本机好用），主题不白板
+
+如果您 fork 了这个仓库，记得把第二行里的 `TTNAN/clash-verge-ingrid-theme` 改成您自己的仓库地址。
+
 ---
 
 ## 🎨 自定义速查表

@@ -124,6 +124,16 @@ Common path formats:
 
 Tip: in Clash Verge's Custom CSS field, `$(pwd)` resolves to the directory of the CSS file, so you can ship the theme + wallpaper together.
 
+The CSS already ships with a two-layer fallback chain:
+
+```css
+--cv-wallpaper:
+  url("http://asset.localhost/$(pwd)/wallpaper/wallpaper.jpg"),                                  /* local bundle */
+  url("https://fastly.jsdelivr.net/gh/TTNAN/clash-verge-ingrid-theme@main/wallpaper/wallpaper.jpg"); /* CDN mirror */
+```
+
+If the bundled wallpaper file is missing, the jsDelivr mirror kicks in automatically — no blank theme.
+
 ---
 
 ## 🎨 Customisation cheat-sheet

@@ -10,8 +10,17 @@
   /* ---- Wallpaper ---------------------------------------------------------
      Default points to the bundled wallpaper. Replace this with your own
      asset:// / file:// URL if you prefer a different image.
+
+     We provide a fallback chain:
+       1. The bundled wallpaper shipped inside this repo
+          (resolved by Clash Verge via asset.localhost + $(pwd))
+       2. The same image mirrored on jsDelivr CDN, keyed to this repo
+          (works even if the user forgot to ship wallpaper/ alongside)
+     Replace both URLs with your own if you fork.
      ----------------------------------------------------------------------- */
-  --cv-wallpaper: url("http://asset.localhost/$(pwd)/wallpaper/wallpaper.jpg");
+  --cv-wallpaper:
+    url("http://asset.localhost/$(pwd)/wallpaper/wallpaper.jpg"),
+    url("https://fastly.jsdelivr.net/gh/TTNAN/clash-verge-ingrid-theme@main/wallpaper/wallpaper.jpg");
   --cv-wp-filter: none;
 
   --cv-scrim: rgba(6, 8, 14, 0.10);

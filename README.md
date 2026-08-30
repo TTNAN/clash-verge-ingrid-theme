@@ -8,6 +8,18 @@ A frosted-glass CSS theme for [Clash Verge](https://github.com/clash-verge-rev/c
 
 ---
 
+## 📸 Previews
+
+### Proxies page
+
+![Proxies preview](docs/preview-proxies.png)
+
+### Settings overview
+
+![Overview preview](docs/preview-overview.png)
+
+---
+
 ## ✨ Features
 
 - **Frosted glass** on every card, dialog, and popover
@@ -19,27 +31,29 @@ A frosted-glass CSS theme for [Clash Verge](https://github.com/clash-verge-rev/c
 
 ---
 
-## 📸 Preview
-
-| Proxies page | Settings |
-| --- | --- |
-| *(drop a screenshot of `Proxies` here)* | *(drop a screenshot of `Settings` here)* |
-
-You can also just open `wallpaper/wallpaper.jpg` to see the bundled background.
-
----
-
 ## 🚀 Installation
 
-1. **Disable the system title bar** so the wallpaper can cover the top of the window:
-   `Settings → Interface → 优先使用系统标题栏` → **off**
-   *(the exact menu label depends on your Clash Verge language; it's the toggle that hides the native window decoration)*
-2. Open Clash Verge → **Settings → Theme / 主题设置**
-3. Find the **Custom CSS / 自定义 CSS** field
-4. Paste the **entire** contents of [`theme.css`](./theme.css)
-5. Save — the theme takes effect immediately
+### 1. Open the custom title bar (required for full-screen wallpaper)
 
-That's it. No restart needed.
+By default Clash Verge uses the **system title bar**, which sits *above* the webview and cannot be styled by CSS. To let the wallpaper cover the entire window (including the very top edge), you must disable it.
+
+Open **Settings → Interface** and turn the **first toggle** off:
+
+> **优先使用系统标题栏** → **OFF**
+
+![Interface settings — disable system title bar](docs/interface-settings.png)
+
+*(the exact menu label depends on your Clash Verge language; on the English build it's something like "Use system title bar". Once it is OFF, the title bar becomes part of the webview and our CSS can paint it transparent.)*
+
+### 2. Paste the CSS
+
+Open **Settings → Theme settings**, find the **CSS injection** field, click the pencil icon, and paste the **entire** contents of [`theme.css`](./theme.css). Save.
+
+The theme takes effect immediately — no restart needed.
+
+For reference, here is what the **Theme settings** dialog looks like in our setup:
+
+![Theme settings dialog](docs/theme-settings.png)
 
 ---
 
@@ -115,7 +129,7 @@ All visual tweaks are CSS variables at the top of `theme.css`.
 
 The bottom of `theme.css` contains two surgical patches:
 
-1. A **wide-net titlebar selector** that turns the custom (non-system) title bar fully transparent so the wallpaper flows edge-to-edge.
+1. A **wide-net titlebar selector** that turns the custom (non-system) title bar fully transparent so the wallpaper flows edge-to-edge. This is why step **1** of the install instructions asks you to disable the system title bar — without that, the title bar lives outside the webview and CSS cannot reach it.
 2. A **MUI Typography force-bright** rule that keeps the small node-name text next to "Selector" readable, without painting the whole card white on hover.
 
 ---
@@ -127,8 +141,13 @@ clash-verge-ingrid-theme/
 ├── README.md
 ├── LICENSE
 ├── theme.css                # ← drop this into Clash Verge
-└── wallpaper/
-    └── wallpaper.jpg        # bundled background
+├── wallpaper/
+│   └── wallpaper.jpg        # bundled background
+└── docs/
+    ├── preview-proxies.png   # what the Proxies page looks like
+    ├── preview-overview.png  # what the Settings page looks like
+    ├── theme-settings.png    # reference: where to paste the CSS
+    └── interface-settings.png  # reference: turn off system title bar
 ```
 
 ---

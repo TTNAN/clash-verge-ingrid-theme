@@ -2,55 +2,11 @@
 
 ![banner](wallpaper/wallpaper.jpg)
 
-> *灵感来源于《Street Fighter 6》中 Ingrid 的水晶幻境——她每一次瞬移都留下半透明的光晕，像凝固的玻璃碎片。这套 Clash Verge 主题把这种感觉搬到了代理面板上：每一张卡片都是一片"水晶"，底下透出您的壁纸。*
+> *Inspired by the crystalline teleportation of **Ingrid** from *Street Fighter 6* — every panel in this theme is a frozen shard of light, the wallpaper peeking through underneath.*
 
----
+A frosted-glass CSS theme for [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev) inspired by **Ingrid** from *Street Fighter 6*. Every panel is a frozen shard of light, the wallpaper bleeds edge-to-edge, and the proxy list reads like a battlefield of crystalline teleports.
 
-## 🇨🇳 简体中文简介
-
-**Clash Verge 毛玻璃主题 · Ingrid 版**
-
-> 灵感来自《街头霸王 6》的 **Ingrid（英格丽德）**——每一次瞬移都留下半透明白色光晕，像凝固的水晶碎片。本主题把这种感觉搬到了 Clash Verge 的代理面板上：每一张卡片都是一片"水晶"，底下透出您的壁纸。
-
-### 这是什么？
-
-一份**纯 CSS 注入**的毛玻璃主题，专为 [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev) 设计。不修改任何源代码，不依赖任何外部资源——您只需要把一份 CSS 粘贴进"主题设置 → CSS 注入"，整套界面瞬间换皮。
-
-### 为什么做这个？
-
-默认的 Clash Verge 主题是 MUI 默认色 + 灰底卡片，代理列表一眼望上去密密麻麻像表格。希望让它变成这样：
-
-- 卡片像一片**浮在壁纸上的薄玻璃**，能透出您精心挑的壁纸
-- 节点名不会因为"压暗的次级文字"而看不清
-- 顶部标题栏也是壁纸的一部分，**整个窗口真正"无缝一体"**
-- 想换壁纸/换配色/调整磨砂浓度，**改一行 CSS 变量**就行
-
-### 适合谁？
-
-- 喜欢自定义界面、但不想折腾编译/打包 Clash Verge 源码的人
-- 想让代理面板跟自己的壁纸协调一致的视觉控
-- 觉得官方主题文字偏暗、节点名辨识度不够的人
-- 喜欢街霸6、想用 Ingrid 的水晶质感做点什么的粉丝
-
-### ✨ 主要特性
-
-- 全屏**毛玻璃**效果（卡片、弹窗、菜单、悬浮层）
-- **壁纸铺满整个窗口**——包括顶部标题栏
-- **微调透明度**：壁纸隐约可见，文字不会糊掉
-- **节点名强制提亮**：Selector 旁边的小字不再暗淡
-- 单一 `theme.css` 文件，**纯 CSS 注入**，无依赖、无 JS
-- 顶部 CSS 变量一行就能换壁纸、改配色、调整磨砂程度
-
-### 🚀 一句话安装
-
-1. **设置 → 界面设置 → 把第一项「优先使用系统标题栏」关掉**（这一步让壁纸能覆盖顶栏）
-2. **设置 → 主题设置 → CSS 注入 → 把 `theme.css` 整份粘贴进去 → 保存**
-
-详细教程往下翻（英文版教程往下滚；如需完整中文文档请切换到 [`README.zh-CN.md`](./README.zh-CN.md)）。
-
----
-
-A frosted-glass CSS theme for [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev) inspired by **Ingrid** from *Street Fighter 6*. Every panel is a frozen shard of light, the wallpaper peeks through underneath, and the proxy list reads like a battlefield of crystalline teleports.
+> 🌏 **Looking for the Simplified Chinese version?** Switch the language using the picker at the top-right of this page, or read [`README.zh.md`](./README.zh.md) directly.
 
 ---
 
@@ -85,7 +41,7 @@ By default Clash Verge uses the **system title bar**, which sits *above* the web
 
 Open **Settings → Interface** and turn the **first toggle** off:
 
-> **优先使用系统标题栏** → **OFF**
+> **优先使用系统标题栏** (Use system title bar) → **OFF**
 
 ![Interface settings — disable system title bar](docs/interface-settings.png)
 
@@ -114,15 +70,35 @@ The bundled wallpaper lives in `wallpaper/wallpaper.jpg`. To use your own:
 --cv-wallpaper: url("http://asset.localhost/$(pwd)/wallpaper/wallpaper.jpg");
 ```
 
-Common path formats:
+### Windows local wallpaper example
+
+If you keep your wallpapers in something like `C:\Users\Public\Pictures\ClashVergeTheme\`, point `--cv-wallpaper` at:
+
+```css
+--cv-wallpaper: url("http://asset.localhost/C%3A%5CUsers%5CPublic%5CPictures%5CClashVergeTheme%5Cwallpaper.jpg");
+```
+
+A few things to remember:
+
+- The `:` after the drive letter must be `%3A` (it is a reserved URL character)
+- Backslashes `\` must become `%5C` (do **not** swap them for `/` — Clash Verge's asset loader doesn't accept forward slashes here)
+- Spaces and non-ASCII characters must be percent-encoded too (e.g. ` ` → `%20`, `我的壁纸` → `%E6%88%91%E7%9A%84%E5%A3%81%E7%BA%B8`)
+
+PowerShell one-liner to URL-encode a Windows path:
+
+```powershell
+[System.Uri]::EscapeDataString('C:\Users\Public\Pictures\ClashVergeTheme\wallpaper.jpg')
+```
+
+### Multi-platform reference
 
 | OS | Example |
 | --- | --- |
-| Windows | `url("http://asset.localhost/C%3A%5CUsers%5CPublic%5CPictures%5Cmy-image.jpg")` |
-| Linux | `url("file:///home/you/Pictures/my-image.jpg")` |
-| macOS | `url("file:///Users/you/Pictures/my-image.jpg")` |
+| Windows (backslash + URL-encoded) | `url("http://asset.localhost/C%3A%5CUsers%5CPublic%5CPictures%5CClashVergeTheme%5Cwallpaper.jpg")` |
+| Linux | `url("file:///home/yourname/Pictures/my-image.jpg")` |
+| macOS | `url("file:///Users/yourname/Pictures/my-image.jpg")` |
 
-Tip: in Clash Verge's Custom CSS field, `$(pwd)` resolves to the directory of the CSS file, so you can ship the theme + wallpaper together.
+Tip: in Clash Verge's Custom CSS field, `$(pwd)` resolves to the directory of the CSS file, so you can ship the theme + wallpaper together without hand-writing paths.
 
 The CSS already ships with a two-layer fallback chain:
 
@@ -132,7 +108,7 @@ The CSS already ships with a two-layer fallback chain:
   url("https://fastly.jsdelivr.net/gh/TTNAN/clash-verge-ingrid-theme@main/wallpaper/wallpaper.jpg"); /* CDN mirror */
 ```
 
-If the bundled wallpaper file is missing, the jsDelivr mirror kicks in automatically — no blank theme.
+If the bundled wallpaper file is missing, the jsDelivr mirror kicks in automatically — no blank theme. If you fork this repo, remember to swap `TTNAN/clash-verge-ingrid-theme` in the second URL for your own repo path.
 
 ---
 
@@ -194,11 +170,12 @@ The bottom of `theme.css` contains two surgical patches:
 
 ```
 clash-verge-ingrid-theme/
-├── README.md
+├── README.md                 # this file (English)
+├── README.zh.md              # Simplified Chinese version
 ├── LICENSE
-├── theme.css                # ← drop this into Clash Verge
+├── theme.css                 # ← drop this into Clash Verge
 ├── wallpaper/
-│   └── wallpaper.jpg        # bundled background
+│   └── wallpaper.jpg         # bundled background
 └── docs/
     ├── preview-proxies.png   # what the Proxies page looks like
     ├── preview-overview.png  # what the Settings page looks like

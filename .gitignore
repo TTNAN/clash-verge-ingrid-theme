@@ -1,0 +1,19 @@
+# OS / IDE junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local overrides
+*.local.css
+theme.local.css
+
+# Wallpaper variants the user might drop in for testing
+wallpaper/*.tmp.*
+wallpaper/*-test.*
+
+# Node / build outputs (we ship pure CSS, but keep the door open)
+node_modules/
+dist/

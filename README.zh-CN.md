@@ -61,22 +61,44 @@ Clash Verge 默认使用**系统标题栏**，那一层在 WebView 之上，CSS 
 
 仓库里默认带的壁纸在 `wallpaper/wallpaper.jpg`。换自己的壁纸有两种方式：
 
-1. 直接用同名图片替换 `wallpaper/wallpaper.jpg`
+1. 直接用同名图片替换 `wallpaper/wallpaper.jpg`（最简单，连 CSS 都不用动）
 2. 或者改 `theme.css` 里这一行的路径：
 
 ```css
 --cv-wallpaper: url("http://asset.localhost/$(pwd)/wallpaper/wallpaper.jpg");
 ```
 
-常见系统的路径写法：
+### Windows 本地壁纸示例（推荐）
+
+很多用户把壁纸统一放在 `C:\Users\Public\Pictures\ClashVergeTheme\` 这种专门的文件夹里管理。比如您的壁纸叫 `wallpaper.jpg`，那么改 `theme.css` 的 `--cv-wallpaper` 一行为：
+
+```css
+--cv-wallpaper: url("http://asset.localhost/C%3A%5CUsers%5CPublic%5CPictures%5CClashVergeTheme%5Cwallpaper.jpg");
+```
+
+**几个关键点**：
+
+- 盘符 `:` 之后必须用 `%3A`（`:` 在 URL 里是保留字符，必须编码）
+- 反斜杠 `\` 必须全部改成 `%5C`（**不能直接用 `/`**，Clash Verge 的 asset loader 不认）
+- 空格、中文也要 URL 编码：`空格 → %20`，比如 `My Pictures` → `My%20Pictures`；中文比如 `我的壁纸` → `%E6%88%91%E7%9A%84%E5%A3%81%E7%BA%B8`
+
+如果您懒得手写 URL 编码，PowerShell 一键生成：
+
+```powershell
+[System.Uri]::EscapeDataString('C:\Users\Public\Pictures\ClashVergeTheme\wallpaper.jpg')
+```
+
+输出直接就是 `C%3A%5CUsers%5CPublic%5CPictures%5CClashVergeTheme%5Cwallpaper.jpg`，复制粘贴到 CSS 里即可。
+
+### 多平台路径速查
 
 | 系统 | 示例 |
 | --- | --- |
-| Windows | `url("http://asset.localhost/C%3A%5CUsers%5CPublic%5CPictures%5Cmy-image.jpg")` |
+| Windows（反斜杠 + URL 编码） | `url("http://asset.localhost/C%3A%5CUsers%5CPublic%5CPictures%5CClashVergeTheme%5Cwallpaper.jpg")` |
 | Linux | `url("file:///home/yourname/Pictures/my-image.jpg")` |
 | macOS | `url("file:///Users/yourname/Pictures/my-image.jpg")` |
 
-> 提示：在 Clash Verge 的"自定义 CSS"输入框里，`$(pwd)` 会解析成 CSS 文件所在的目录，所以您可以直接把 CSS 和壁纸一起打包分发，使用者一行都不用改。
+> 提示：在 Clash Verge 的"自定义 CSS"输入框里，`$(pwd)` 会解析成 CSS 文件所在的目录，所以如果您**直接套用本仓库的目录结构**（`theme.css` + `wallpaper/wallpaper.jpg` 一起放），用 `--cv-wallpaper: url("http://asset.localhost/$(pwd)/wallpaper/wallpaper.jpg");` 就行，**不用手写路径**。
 
 ---
 

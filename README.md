@@ -4,6 +4,32 @@
 
 > *灵感来源于《Street Fighter 6》中 Ingrid 的水晶幻境——她每一次瞬移都留下半透明的光晕，像凝固的玻璃碎片。这套 Clash Verge 主题把这种感觉搬到了代理面板上：每一张卡片都是一片"水晶"，底下透出您的壁纸。*
 
+---
+
+## 🇨🇳 简体中文简介
+
+**Clash Verge 毛玻璃主题 · Ingrid 版**
+
+一套为 [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev) 设计的 CSS 注入主题，灵感来自《街头霸王 6》的角色 **Ingrid（英格丽德）**——每一次瞬移都留下半透明白色光晕，像凝固的水晶碎片。
+
+### ✨ 主要特性
+
+- 全屏**毛玻璃**效果（卡片、弹窗、菜单、悬浮层）
+- **壁纸铺满整个窗口**——包括顶部标题栏
+- **微调透明度**：壁纸隐约可见，文字不会糊掉
+- **节点名强制提亮**：Selector 旁边的小字不再暗淡
+- 单一 `theme.css` 文件，**纯 CSS 注入**，无依赖、无 JS
+- 顶部 CSS 变量一行就能换壁纸、改配色、调整磨砂程度
+
+### 🚀 一句话安装
+
+1. **设置 → 界面设置 → 把第一项「优先使用系统标题栏」关掉**（这一步让壁纸能覆盖顶栏）
+2. **设置 → 主题设置 → CSS 注入 → 把 `theme.css` 整份粘贴进去 → 保存**
+
+详细教程往下翻（英文版教程往下滚；如需完整中文文档请切换到 [`README.zh-CN.md`](./README.zh-CN.md)）。
+
+---
+
 A frosted-glass CSS theme for [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev) inspired by **Ingrid** from *Street Fighter 6*. Every panel is a frozen shard of light, the wallpaper peeks through underneath, and the proxy list reads like a battlefield of crystalline teleports.
 
 ---
